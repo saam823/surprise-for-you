@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tiny message for u</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Tahoma;
+    text-align: center;
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* الخلفية */
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("photo.jpg") no-repeat center center/cover;
+    filter: brightness(50%); /* تظليل */
+    z-index: -1;
+}
+
+.box {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ddd;
+}
+
+.hidden {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="box">
+
+<div id="q1">
+<h2>سؤال </h2>
+<p>تحبيني هواي لو شوي </p>
+<button onclick="next('q2')">احبك هواي</button>
+<button onclick="next('q2')">شوي </button>
+</div>
+
+<div id="q2" class="hidden">
+<h2>سؤال ثاني </h2>
+<p>تريدين تشوفين جزء من حبي الج؟</p>
+<button onclick="showFinal()">اي طبعاً</button>
+<button onclick="showFinal()">غصبا عنج اي</button>
+</div>
+
+<div id="final" class="hidden">
+<h2>to the prettiest girl ive ever seen</h2>
+<p>
+منايتي متدرين شلون احبج وشلون اشوف الدنيا كلها بعيونج , ما ادري شلون 
+  جنت محظوظ هلكد حتى احصل اجمل بنية بالدنيا كلها , 
+  محد مثلج يفهمني ويفسر كلامي مثل ما اني افهمه , كلما جاي نعيش يوم سوية 
+  اني وياج كلما جاي احبج اكثر .
+  اتمنى لو انت يمي هسة واكدر ابوسج من كل مكان بوجهج حتى اشوفج شلون احبج 
+  بالواقع مو بس حجي , انت تعنيلي كل شي بحياتي , اصلا حياتي بدت 
+  من عرفتج , بدونج عبالك حياتي ابيض واسود وبس دخلتيها تلونت بالوان لطافتج وكلامج 
+  الحلو الي , كل الي كتبته هو جزء بسيط من حبي الج وبس نلتقي راح تشوفين كل حبي
+
+  عمر 
+</p>
+</div>
+
+<audio id="music" autoplay loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<script>
+function next(nextId) {
+    document.querySelector(".box > div:not(.hidden)").classList.add("hidden");
+    document.getElementById(nextId).classList.remove("hidden");
+}
+
+function showFinal() {
+    document.querySelector(".box > div:not(.hidden)").classList.add("hidden");
+    document.getElementById("final").classList.remove("hidden");
+
+    // تشغيل الاغنية تلقائي
+    var music = document.getElementById("music");
+    music.play();
+}
+</script>
+
+</body>
+</html>
